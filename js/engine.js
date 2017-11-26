@@ -86,10 +86,13 @@ var Engine = (function(global) {
      }
 
      function checkCollisions() {
-         $.each(allEnemies, function(enemy) {
-             if (enemy) {
+         $.each(allEnemies, function(i, v) {
+             if (v) {
                  if (v.x > 505) {
                      allEnemies.splice(i, 1);
+                 }
+                 if (getDistance(player.x, player.y, v.x, v.y) < 50) {
+                     player.reset();
                  }
              }
          });
