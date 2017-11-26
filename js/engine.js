@@ -78,6 +78,13 @@ var Engine = (function(global) {
      * on the entities themselves within your app.js file).
      */
 
+     // great thanks to Chris for this collision detection method: https://www.youtube.com/watch?v=XYzA_kPWyJ8&t=5s
+     function getDistance(x1, y1, x2, y2) {
+         var xDistance = x2 - x1,
+             yDistance = y2 - y1;
+         return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+     }
+
      function checkCollisions() {
          $.each(allEnemies, function(enemy) {
              if (enemy) {
