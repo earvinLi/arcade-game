@@ -28,6 +28,11 @@ Enemy.prototype.render = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let allEnemies = [new Enemy(0, 65), new Enemy(0, 148), new Enemy(0, 231)];
+setInterval(function() {
+    allEnemies.push(new Enemy(0, 65));
+    allEnemies.push(new Enemy(0, 148));
+    allEnemies.push(new Enemy(0, 231));
+}, 2000);
 
 
 // This listens for key presses and sends the keys to your
