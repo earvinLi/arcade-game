@@ -30,6 +30,27 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+Player.prototype.reset = function() {
+    this.x = 200;
+    this.y = 400;
+}
+
+Player.prototype.update = function(dt) {
+    if (this.y === -15) {
+        this.reset();
+    }
+    // boundry control
+    if (this.y === playerBoundYBot) {
+        this.y = 400;
+    }
+    if (this.x === playerBoundXLeft) {
+        this.x = 0;
+    }
+    if (this.x === playerBoundXRight) {
+        this.x = 400;
+    }
+};
+
 Player.prototype.handleInput = function(key) {
     if (key === 'left') {
         this.x -= 100;
